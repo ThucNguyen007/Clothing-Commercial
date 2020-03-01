@@ -55,7 +55,7 @@ class Directory extends React.Component {
             <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} linkUrl={linkUrl}/>
         ))}
       </div>
-    )
+    );
   }
 }
 export default Directory;

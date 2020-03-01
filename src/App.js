@@ -5,21 +5,24 @@ import './App.css';
 
 import MainPage from './pages/mainpage/mainpage.component';
 
-const HatsPage = () => (
-  <div>
-    <h1> HATS PAGE </h1>
-  </div>
-);
+import ShoppingPage from './pages/shopping/shopping.component';
 
 function App() {
   return (
     <div>
       <Switch>
         <Route exact path='/' component={MainPage} />
-        <Route path='/hats' component={HatsPage} />
+        <Route path='/shopping' component={ShoppingPage} />
       </Switch>
     </div>
   );
 }
 
 export default App;
+
+/*
+const HatsPage = () => (
+  <div>
+    <h1> HATS PAGE </h1>
+  </div>
+);*/
