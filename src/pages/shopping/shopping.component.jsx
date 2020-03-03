@@ -6,21 +6,22 @@ import CollectionPreview from '../../components/collection-preview/collection-pr
 
 class ShoppingPage extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            collections: SHOPPING_DATA
-        };
+      super(props);
+
+      this.state = {
+        collections: SHOPPING_DATA
+      };
     }
 
     render() {
-        const { collections } = this.state;
-        return (
-          <div className='shop-page'>
-            {collections.map(({ id, ...otherCollectionsProps }) => (
-                    <CollectionPreview key={id} {...otherCollectionsProps} />
-            ))}
-          </div>
-        );
+      const { collections } = this.state;
+      return (
+        <div className='shop-page'>
+          {collections.map(({ id, ...otherCollectionProps }) => (
+            <CollectionPreview key={id} {...otherCollectionProps} />
+          ))}
+        </div>
+      );
     }
 }
 
