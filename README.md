@@ -2,6 +2,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### Prerequisites
+
+In order to run this project, ensure that the following software is all installed correctly: 
+
+ * [Node.js](https://nodejs.org/en/download/) - the latest version.
+ * [React.js](https://reactjs.org/) - the website framework.
+ * [Yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+   
 In the project directory, you can run:
 
 ### `yarn start`
