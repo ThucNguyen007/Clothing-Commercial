@@ -11,12 +11,35 @@ import ShoppingPage from './pages/shopping/shopping.component.jsx';
 
 import Header from './components/header-file/header.component';
 
+import { auth } from './firebase/firebase.utils';
+
 import signningPage from './pages/signIn-signUp/signIn-signUp.component';
 
-function App() {
+class App extends React.Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      currentUser: null
+    }
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({currentUser: user });
+    })
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
+
+  render() {
   return (
     <div>
-      <Header />
+      <Header currentUser={this.state.currentUser} />
       <Switch>
         <Route exact path='/' component={MainPage} />
         <Route path='/shopping' component={ShoppingPage} />
@@ -24,6 +47,7 @@ function App() {
       </Switch>
     </div>
   );
+  }
 }
 
 export default App;
