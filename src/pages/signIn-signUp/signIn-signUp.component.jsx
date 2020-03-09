@@ -6,11 +6,11 @@ import SignUp from '../../components/signUp/sign-up.component';
 
 import './sign-in-and-sign-up.styles.scss';
 
-const signningPage = () => (
+const SignningPage = () => (
     <div className='sign-in-and-sign-up'>
         <SignIn />
         <SignUp />
     </div>
 );
 
-export default signningPage;
+export default SignningPage;
