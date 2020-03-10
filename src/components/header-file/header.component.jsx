@@ -6,10 +6,19 @@ import { auth } from '../../firebase/firebase.utils';
 
 import { connect } from 'react-redux';
 
+import { ReactComponent as LogoHeader } from '../../assets/open-shop.svg';
+
+import CartIcon from '../cart-icon/cart-icon.component';
+
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+
 import './header.styles.scss';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, hidden }) => (
   <div className='header'>
+    <Link className='logo-container' to='/'>
+      <LogoHeader className='logo' />
+    </Link>
     <div className='options'>
       <Link className='option' to='/shopping'>
         SHOP
@@ -26,12 +35,21 @@ const Header = ({ currentUser }) => (
           SIGN IN
         </Link>
       )}
+      <CartIcon />
+      <div>
+        {hidden ? null : <CartDropdown />}
+      </div>
     </div>
   </div>
 );
 
-const mapStateToProps = state => ({
+const mapStateToProps = ({ user: { currentUser}, cart: { hidden } }) => ({
+  currentUser, 
+  hidden
+})
+
+/*const mapStateToProps = state => ({
   currentUser: state.user.currentUser
-});
+});*/
 
 export default connect(mapStateToProps) (Header);

@@ -5,7 +5,7 @@ import Directory from '../../components/directory/directory.component';
 import './mainpage.styles.scss';
 
 const MainPage = () => (
-  <div className='mainpage'>
+  <div className='Mainpage'>
     <Directory />
   </div>
 );

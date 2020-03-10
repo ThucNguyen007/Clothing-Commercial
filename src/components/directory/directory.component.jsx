@@ -1,6 +1,3 @@
-// import React, { useContext } from 'react';
-// import DirectoryContext from '../../contexts/directory/directory.context';
-
 import React from 'react';
 
 import MenuItem from '../menu-item/menu-item.component';
@@ -9,43 +6,65 @@ import './directory.styles.scss';
 
 class Directory extends React.Component {
   constructor() {
-    super(); 
+    super();
 
     this.state = {
-      sections: [{
-        title: 'hats',
-        imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-        id: 1,
-        linkUrl: 'shopping/hats'
-      },
-      {
-        title: 'jackets',
-        imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-        id: 2,
-        linkUrl: 'shopping/jackets'
-      },
-      {
-        title: 'sneakers',
-        imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-        id: 3,
-        linkUrl: 'shopping/sneakers'
-      },
-      {
-        title: 'womens',
-        imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-        size: 'large',
-        id: 4,
-        linkUrl: 'shopping/womens'
-      },
-      {
-        title: 'mens',
-        imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-        size: 'large',
-        id: 5,
-        linkUrl: 'shopping/mens'
-      }]
-    }
+      sections: [
+        {
+          title: 'hats',
+          imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+          id: 1,
+          linkUrl: 'shopping/hats'
+        },
+        {
+          title: 'jackets',
+          imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+          id: 2,
+          linkUrl: 'shopping/jackets'
+        },
+        {
+          title: 'sneakers',
+          imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+          id: 3,
+          linkUrl: 'shopping/sneakers'
+        },
+        {
+          title: 'womens',
+          imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+          size: 'large',
+          id: 4,
+          linkUrl: 'shopping/womens'
+        },
+        {
+          title: 'mens',
+          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          size: 'large',
+          id: 5,
+          linkUrl: 'shopping/mens'
+        }
+      ]
+    };
   }
+
+  render() {
+    return (
+      <div className='directory-menu'>
+        {this.state.sections.map(({ id, ...otherSectionProps }) => (
+          <MenuItem key={id} {...otherSectionProps} />
+        ))}
+      </div>
+    );
+  }
+}
+
+export default Directory;
+
+// import React, { useContext } from 'react';
+// import DirectoryContext from '../../contexts/directory/directory.context';
+
+/*
+const Directory = () => {
+  const sections = useContext(DirectoryContext);
 
   render() {
     return (
@@ -56,23 +75,6 @@ class Directory extends React.Component {
       </div>
     );
   }
-}
-export default Directory;
-
-/*
-const Directory = () => {
-  const sections = useContext(DirectoryContext);
-
-render() {
-    return (
-      <div className='directory-menu'>
-        {this.state.sections.map(({ id, ...otherSectionProps }) => (
-          <MenuItem key={id} {...otherSectionProps} />
-        ))}
-      </div>
-    );
-  }
-};
 
 export default Directory;
 */

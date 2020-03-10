@@ -49,7 +49,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/' component={MainPage} />
-          <Route path='/shop' component={ShoppingPage} />
+          <Route path='/shopping' component={ShoppingPage} />
           <Route
             exact path='/sign-in'
             render={() =>
