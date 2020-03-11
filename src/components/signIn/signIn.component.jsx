@@ -10,7 +10,8 @@ import './signIn.styles.scss';
 
 class SignIn extends React.Component {
   constructor(props) {
-    super(props);  
+    super(props);
+
     this.state = {
       email: '',
       password: ''
@@ -24,12 +25,12 @@ class SignIn extends React.Component {
 
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      this.setState({ email: '', password: ''});
+      this.setState({ email: '', password: '' });
     } catch (error) {
       console.log(error);
     }
   };
-    
+
   handleChange = event => {
     const { value, name } = event.target;
 
