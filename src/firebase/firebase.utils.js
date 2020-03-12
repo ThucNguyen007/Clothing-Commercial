@@ -1,10 +1,8 @@
 import firebase from 'firebase/app';
-
 import 'firebase/firestore';
-
 import 'firebase/auth';
 
-export const createUserProfileDocument = async (userAuth, additionalData) => {
+export const CreateUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) {
     return;
   }

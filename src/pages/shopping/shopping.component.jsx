@@ -1,9 +1,16 @@
 import React from 'react';
 
-import SHOPPING_DATA from './shopping.data.js';
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 
-import CollectionPreview from '../../components/collection-preview/collection-preview.component';
+const ShoppingPage = ({ collections }) => (
+  <div className='shopping-page'>
+    <CollectionsOverview />
+  </div>
+);
 
+export default ShoppingPage;
+
+/*
 class ShoppingPage extends React.Component {
     constructor(props) {
       super(props);
@@ -24,5 +31,4 @@ class ShoppingPage extends React.Component {
       );
     }
 }
-
-export default ShoppingPage;
+*/

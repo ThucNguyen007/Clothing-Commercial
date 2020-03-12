@@ -1,11 +1,9 @@
 
 import React from 'react';
-
 import FormInput from '../form-input/form-input.component';
-
 import CustomButton from '../button/custom-button.component';
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { auth, CreateUserProfileDocument } from '../../firebase/firebase.utils';
 
 import './sign-up.styles.scss';
 
@@ -37,7 +35,7 @@ class SignUp extends React.Component {
           password
         );
   
-        await createUserProfileDocument(user, { displayName });
+        await CreateUserProfileDocument(user, { displayName });
   
         this.setState({
           displayName: '',
