@@ -23,6 +23,7 @@ class App extends React.Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await CreateUserProfileDocument(userAuth);
+
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
@@ -45,7 +46,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/' component={MainPage} />
-          <Route path='/shop' component={ShoppingPage} />
+          <Route path='/shopping' component={ShoppingPage} />
           <Route exact path='/checking-out' component={CheckoutPage} />
           <Route
             exact path='/sign-in'
