@@ -23,14 +23,14 @@ const Header = ({ currentUser, hidden }) => (
       <LogoHeader className='logo-container' />
     </LogoContainer>
     <OptionsContainer>
-      <OptionLink to='/shopping'> SHOP </OptionLink>
-      <OptionLink to='/shopping'> CONTACT </OptionLink>
+      <OptionLink to='/shop'> SHOP </OptionLink>
+      <OptionLink to='/contact'> CONTACT </OptionLink>
       {currentUser ? (
         <OptionLink as='div' onClick={() => auth.signOut()}>
           SIGN OUT
         </OptionLink>
       ) : (
-        <OptionLink to='/sign-in'>SIGN IN</OptionLink>
+        <OptionLink to='/sign-in'> SIGN IN </OptionLink>
       )}
       <CartIcon />
     </OptionsContainer>
@@ -43,7 +43,7 @@ const mapStateToProps = createStructuredSelector({
   hidden: selectCartHidden
 });
 
-export default connect(mapStateToProps) (Header);
+export default connect(mapStateToProps)(Header);
 
 /*
 const mapStateToProps = (state) => ({

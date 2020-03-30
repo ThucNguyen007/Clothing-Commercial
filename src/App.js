@@ -1,18 +1,19 @@
 import React from 'react';
-import './App.css';
+
+import MainPage from './pages/mainpage/mainpage.component';
+import CheckoutPage from './pages/checkout/checkout.component';
+import ShoppingPage from './pages/shop/shop.component.jsx';
+import Header from './components/header-file/header.component';
+import SignningPage from './pages/signIn-signUp/signIn-signUp.component';
 
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { setCurrentUser } from './redux/user/user.actions';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import { auth, CreateUserProfileDocument } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
-import MainPage from './pages/mainpage/mainpage.component';
-import CheckoutPage from './pages/checkout/checkout.component';
-import ShoppingPage from './pages/shopping/shopping.component.jsx';
-import Header from './components/header-file/header.component';
-import SignningPage from './pages/signIn-signUp/signIn-signUp.component';
+import './App.css';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -22,7 +23,7 @@ class App extends React.Component {
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
-        const userRef = await CreateUserProfileDocument(userAuth);
+        const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
@@ -47,7 +48,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={MainPage} />
           <Route path='/shopping' component={ShoppingPage} />
-          <Route exact path='/checking-out' component={CheckoutPage} />
+          <Route exact path='/check-out' component={CheckoutPage} />
           <Route
             exact path='/sign-in'
             render={() =>
@@ -75,7 +76,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-) (App);
+)(App);
 
 /*componentDidMount() {
     

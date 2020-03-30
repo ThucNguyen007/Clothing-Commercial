@@ -2,7 +2,22 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-export const CreateUserProfileDocument = async (userAuth, additionalData) => {
+// Your web app's Firebase configuration
+const config = {
+  apiKey: 'AIzaSyAHdR1xFzjfSNhxB56qpOTLU-Ttx1X9jSc',
+  authDomain: 'clothing-ecommerce-39868.firebaseapp.com',
+  databaseURL: 'https://clothing-ecommerce-39868.firebaseio.com',
+  projectId: 'clothing-ecommerce-39868',
+  storageBucket: 'clothing-ecommerce-39868.appspot.com',
+  messagingSenderId: '128793752281',
+  appId: '1:128793752281:web:b35af05216bd1b4dd9c4c8',
+  measurementId: 'G-ZFKYG1J2EQ'
+};
+
+// Initialize Firebase
+firebase.initializeApp(config);
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) {
     return;
   }
@@ -62,19 +77,6 @@ export const convertCollectionsSnapshotToMap = collections => {
     return accumulator;
   }, {});
 };
-
-const firebaseConfig = {
-    apiKey: "AIzaSyAHdR1xFzjfSNhxB56qpOTLU-Ttx1X9jSc",
-    authDomain: "clothing-ecommerce-39868.firebaseapp.com",
-    databaseURL: "https://clothing-ecommerce-39868.firebaseio.com",
-    projectId: "clothing-ecommerce-39868",
-    storageBucket: "clothing-ecommerce-39868.appspot.com",
-    messagingSenderId: "128793752281",
-    appId: "1:128793752281:web:b35af05216bd1b4dd9c4c8",
-    measurementId: "G-ZFKYG1J2EQ"
-};
-
-firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

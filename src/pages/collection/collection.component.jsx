@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import { selectCollection } from '../../redux/shopping/selectors.shop';
+import CollectionItem from '../../components/collections-items/collection-items.component';
 
-import CollectionItem from '../../components/collections-item/collection-item.component';
+import { connect } from 'react-redux';
+import { selectCollection } from '../../redux/shop/selectors.shop';
 
 import {
   CollectionPageContainer,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import CheckoutItems from '../../components/checkout-items/checkout-items.component';
 import StripeFeatureButton from '../../components/stripe-feature/stripe-feature.component';
 
 import { connect } from 'react-redux';
@@ -35,7 +35,7 @@ const CheckoutPage = ({ cartItems, total }) => (
       </HeaderBlockContainer>
     </CheckoutHeaderContainer>
     {cartItems.map(cartItem => (
-      <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+      <CheckoutItems key={cartItem.id} cartItem={cartItem} />
     ))}
     <TotalContainer> TOTAL: ${total} </TotalContainer>
     <WarningContainer>
