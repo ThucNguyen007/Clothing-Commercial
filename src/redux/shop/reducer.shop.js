@@ -1,9 +1,9 @@
-import SHOPPING_DATA from './shopping.data';
+// import SHOPPING_DATA from './shopping.data';
 
 import ShopActionTypes from './types.shop';
 
 const INITIAL_STATE = {
-    collections: SHOPPING_DATA,
+    collections: null,
     isFetching: false,
     errorMessage: undefined
 };

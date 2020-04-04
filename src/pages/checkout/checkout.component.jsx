@@ -5,46 +5,41 @@ import StripeFeatureButton from '../../components/stripe-feature/stripe-feature.
 
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+
 import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
 
-import {
-  CheckoutPageContainer,
-  CheckoutHeaderContainer,
-  HeaderBlockContainer,
-  TotalContainer,
-  WarningContainer
-} from './checkout.styles';
+import './checkout.styles.scss';
 
 const CheckoutPage = ({ cartItems, total }) => (
-  <CheckoutPageContainer>
-    <CheckoutHeaderContainer>
-      <HeaderBlockContainer>
+  <div className='checkout-page'>
+    <div className='checkout-header'>
+      <div className='header-block'>
         <span> Product </span>
-      </HeaderBlockContainer>
-      <HeaderBlockContainer>
+      </div>
+      <div className='header-block'>
         <span> Description </span>
-      </HeaderBlockContainer>
-      <HeaderBlockContainer>
+      </div>
+      <div className='header-block'>
         <span> Quantity </span>
-      </HeaderBlockContainer>
-      <HeaderBlockContainer>
+      </div>
+      <div className='header-block'>
         <span> Price </span>
-      </HeaderBlockContainer>
-      <HeaderBlockContainer>
+      </div>
+      <div className='header-block'>
         <span> Remove </span>
-      </HeaderBlockContainer>
-    </CheckoutHeaderContainer>
+      </div>
+    </div>
     {cartItems.map(cartItem => (
       <CheckoutItems key={cartItem.id} cartItem={cartItem} />
     ))}
-    <TotalContainer> TOTAL: ${total} </TotalContainer>
-    <WarningContainer>
+    <div className='total'> TOTAL: ${total} </div>
+    <div className='test-warning'>
       *Please use the following test credit card for payments*
       <br />
       4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
-    </WarningContainer>
+    </div>
     <StripeFeatureButton price={total} />
-  </CheckoutPageContainer>
+  </div>
 );
 
 const mapStateToProps = createStructuredSelector({

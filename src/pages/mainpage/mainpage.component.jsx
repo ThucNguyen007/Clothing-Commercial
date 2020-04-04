@@ -2,12 +2,12 @@ import React from 'react';
 
 import Directory from '../../components/directory/directory.component';
 
-import { MainPageContainer } from './mainpage.styles';
+import './mainpage.styles.scss';
 
 const MainPage = () => (
-  <MainPageContainer>
+  <div className='main-page'>
     <Directory />
-  </MainPageContainer>
+  </div>
 );
 
 export default MainPage;
